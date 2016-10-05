@@ -2,11 +2,9 @@
 
 This is a very simple app to use for testing out Docker support.
 
-
-Using the new feature of 
-adlink:https://issues.apache.org/jira/browse/ISIS-1510[ISIS-1510], the 
-webapp can be run with certain configuration properties picked up from 
-the `ISIS_OPT` environment variable.
+Using an interim build of Isis that incorporates the new feature of
+link:https://issues.apache.org/jira/browse/ISIS-1510[ISIS-1510], the webapp can be run with certain configuration
+properties picked up from the `ISIS_OPT` environment variable.
 
 For example:
 
@@ -16,6 +14,20 @@ export ISIS_OPTS="isis.appManifest=domainapp.app.DomainAppAppManifestWithFixture
 ----
 
 can be used to run with a different app manifest, and also to disable editing of properties.
+
+
+To test, run the application eg using `mvn jetty:run`:
+
+
+[source,bash]
+----
+mvn clean install
+cd webapp
+mvn jetty:run
+----
+
+The configuration properties defined by environment variable should be honoured.
+
 
 To use a different separator, set the (optional) `$ISIS_OPTS_SEPARATOR` variable.
 
