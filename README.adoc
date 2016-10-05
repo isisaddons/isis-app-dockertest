@@ -1,0 +1,27 @@
+= isis-app-dockertest
+
+This is a very simple app to use for testing out Docker support.
+
+
+Using the new feature of 
+adlink:https://issues.apache.org/jira/browse/ISIS-1510[ISIS-1510], the 
+webapp can be run with certain configuration properties picked up from 
+the `ISIS_OPT` environment variable.
+
+For example:
+
+[source,bash]
+----
+export ISIS_OPTS="isis.appManifest=domainapp.app.DomainAppAppManifestWithFixtures||isis.objects.editing=false"
+----
+
+can be used to run with a different app manifest, and also to disable editing of properties.
+
+To use a different separator, set the (optional) `$ISIS_OPTS_SEPARATOR` variable.
+
+[source,bash]
+----
+export ISIS_OPTS_SEPARATOR=";"
+export ISIS_OPTS="isis.appManifest=domainapp.app.DomainAppAppManifestWithFixtures;isis.objects.editing=false"
+----
+
