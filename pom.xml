@@ -51,13 +51,21 @@
             </snapshots>
         </repository>
         <repository>
-            <id>Cloudbees snapshots</id>
-            <url>http://repository-estatio.forge.cloudbees.com/snapshot/</url>
-            <snapshots>
-            </snapshots>
+            <id>estatio.snapshots</id>
+            <name>Estatio Snapshots (and Interim Releases)</name>
             <releases>
-                <enabled>false</enabled>
+                <enabled>true</enabled>
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
             </releases>
+            <snapshots>
+                <enabled>true</enabled>
+                <!-- REVIEW: I'd've thought that 'always' makes more sense. http://maven.apache.org/ref/3.3.9/maven-settings/settings.html -->
+                <updatePolicy>never</updatePolicy>
+                <checksumPolicy>fail</checksumPolicy>
+            </snapshots>
+            <url>http://repository-estatio.forge.cloudbees.com/snapshot/</url>
+            <layout>default</layout>
         </repository>
     </repositories>
 
