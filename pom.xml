@@ -283,6 +283,33 @@
                         </licenseFamilies>
                     </configuration>
                 </plugin>
+
+		<plugin>
+			<groupId>com.spotify</groupId>
+			<artifactId>docker-maven-plugin</artifactId>
+			<version>0.4.13</version>		
+			<executions>
+    				<execution>
+      					<id>build-image</id>
+      					<phase>package</phase>
+      					<goals>
+        					<goal>build</goal>
+      					</goals>
+    				</execution> 
+  			</executions>
+			<configuration>						
+        			<imageName>incodehq/isis-app-dockertest</imageName>
+        			<baseImage>incodehq/tomcat</baseImage>
+				<resources>
+           				<resource>
+             					<targetPath>$DEPLOYMENT_DIR</targetPath>
+             					<directory>${project.build.directory}</directory>
+             					<include>simpleapp.war</include>
+           				</resource>
+        			</resources>
+			</configuration>
+		</plugin>
+
             </plugins>
         </pluginManagement>
         <plugins>
@@ -294,6 +321,7 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-report-plugin</artifactId>
             </plugin>
+
         </plugins>
     </build>
 
