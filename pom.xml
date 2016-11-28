@@ -307,6 +307,26 @@
         					<newName>incodehq/isis-app-dockertest:${project.version}</newName>
       					</configuration>
     				</execution>
+				<execution>
+      					<id>push-image</id>
+      					<phase>package</phase>
+      					<goals>
+        					<goal>push</goal>
+      					</goals>
+      					<configuration>
+        					<imageName>incodehq/isis-app-dockertest:${project.version}</imageName>
+      					</configuration>
+    				</execution>        
+				<execution>
+      					<id>push-image-latest</id>
+      					<phase>package</phase>
+      					<goals>
+        					<goal>push</goal>
+      					</goals>
+      					<configuration>
+        					<imageName>incodehq/isis-app-dockertest:latest</imageName>
+      					</configuration>
+    				</execution>      
   			</executions>
 			<configuration>						
         			<imageName>incodehq/isis-app-dockertest</imageName>
@@ -318,6 +338,8 @@
              					<include>simpleapp.war</include>
            				</resource>
         			</resources>
+				<serverId>docker-hub</serverId>
+    				<registryUrl>https://index.docker.io/v1/</registryUrl>
 			</configuration>
 		</plugin>
 
