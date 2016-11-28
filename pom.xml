@@ -296,6 +296,17 @@
         					<goal>build</goal>
       					</goals>
     				</execution> 
+    				<execution>
+      					<id>tag-image</id>
+      					<phase>package</phase>
+      					<goals>
+        					<goal>tag</goal>
+      					</goals>
+      					<configuration>
+        					<image>incodehq/isis-app-dockertest</image>
+        					<newName>incodehq/isis-app-dockertest:${project.version}</newName>
+      					</configuration>
+    				</execution>
   			</executions>
 			<configuration>						
         			<imageName>incodehq/isis-app-dockertest</imageName>
