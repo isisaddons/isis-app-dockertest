@@ -27,7 +27,7 @@ public class SimpleObjectTest {
 
     @Before
     public void setUp() throws Exception {
-        simpleObject = new SimpleObject();
+        simpleObject = new SimpleObject("");
     }
 
     public static class Name extends SimpleObjectTest {
@@ -36,7 +36,7 @@ public class SimpleObjectTest {
         public void happyCase() throws Exception {
             // given
             String name = "Foobar";
-            assertThat(simpleObject.getName()).isNull();
+            assertThat(simpleObject.getName()).isEqualTo("");
 
             // when
             simpleObject.setName(name);
