@@ -21,8 +21,8 @@
 
     <parent>
         <groupId>org.incode</groupId>
-        <artifactId>incode-build</artifactId>
-        <version>1</version>
+        <artifactId>incode-parent</artifactId>
+        <version>1.13.2.20170214-2237</version>
         <relativePath/>
     </parent>
 
@@ -39,25 +39,11 @@
     </prerequisites>
 
     <properties>
-        <isis.version>1.13.0.20161005-1155</isis.version>
+        <assertj-core.version>2.4.0</assertj-core.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <assertj-core.version>2.4.0</assertj-core.version>
     </properties>
-
-    <repositories>
-        <repository>
-            <id>apache.snapshots</id>
-            <name>Apache Snapshots</name>
-            <url>https://repository.apache.org/content/repositories/snapshots/</url>
-            <releases>
-                <enabled>false</enabled>
-            </releases>
-            <snapshots>
-            </snapshots>
-        </repository>
-    </repositories>
 
     <build>
         <pluginManagement>
@@ -408,67 +394,6 @@
         </dependencies>
     </dependencyManagement>
 
-
-    <profiles>
-        <profile>
-            <id>m2e</id>
-            <activation>
-                <property>
-                    <name>m2e.version</name>
-                </property>
-            </activation>
-            <build>
-                <directory>target-ide</directory>
-            </build>
-        </profile>
-        <profile>
-            <id>cloudbees-snapshots</id>
-            <activation>
-                <property>
-                    <name>!skip.cloudbees-snapshots</name>
-                </property>
-            </activation>
-            <repositories>
-                <repository>
-                    <id>cloudbees-snapshots</id>
-                    <name>Estatio Snapshots (and Interim Releases)</name>
-                    <releases>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                        <checksumPolicy>fail</checksumPolicy>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                        <!-- REVIEW: I'd've thought that 'always' makes more sense. http://maven.apache.org/ref/3.3.9/maven-settings/settings.html -->
-                        <updatePolicy>never</updatePolicy>
-                        <checksumPolicy>fail</checksumPolicy>
-                    </snapshots>
-                    <url>http://repository-estatio.forge.cloudbees.com/snapshot/</url>
-                    <layout>default</layout>
-                </repository>
-            </repositories>
-            <pluginRepositories>
-                <pluginRepository>
-                    <id>cloudbees-snapshots</id>
-                    <name>Estatio Snapshots (and Interim Releases)</name>
-                    <releases>
-                        <enabled>true</enabled>
-                        <updatePolicy>never</updatePolicy>
-                        <checksumPolicy>fail</checksumPolicy>
-                    </releases>
-                    <snapshots>
-                        <enabled>true</enabled>
-                        <!-- REVIEW: I'd've thought that 'always' makes more sense. http://maven.apache.org/ref/3.3.9/maven-settings/settings.html -->
-                        <updatePolicy>never</updatePolicy>
-                        <checksumPolicy>fail</checksumPolicy>
-                    </snapshots>
-                    <url>http://repository-estatio.forge.cloudbees.com/snapshot/</url>
-                    <layout>default</layout>
-                </pluginRepository>
-            </pluginRepositories>
-        </profile>
-    </profiles>
-
   <modules>
     <module>app</module>
     <module>dom</module>
@@ -476,4 +401,5 @@
     <module>integtests</module>
     <module>webapp</module>
   </modules>
+
 </project>
